@@ -25,7 +25,13 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/'] , {replaceUrl: true});
       console.log(res);
     }, (err: HttpErrorResponse) => {
-      this.errMsg = err.status === 404 ? 'User Not Found' : 'Something Went wrong, Please check your connection';
+      if(err.status === 404) {
+        this.errMsg = 'User Not Found';
+      }else if(err.status === 403) {
+        this.errMsg = 'Forbidden : ' + err.error.message;
+      }else {
+        this.errMsg = 'Something Went wrong, Please check your connection'
+      }
     });
   }
 }

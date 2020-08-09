@@ -1,0 +1,94 @@
+@import '../../../variables.scss';
+
+.user {
+    .user-img {
+        img{
+            width: 90%; height: auto;
+            border-radius: 6px;
+            @media (max-width: 767px) {
+                width: 100px;
+            }
+        }
+    }
+    .user-info {
+        .name { 
+            font-size: 26px;
+            font-weight: 600;
+        }
+        .g-hub-username {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 24px;
+            color: #666;
+        }
+        .additional-info {
+            p , a { font-size: 12px; text-decoration: none;}
+        }
+    }
+    @media (max-width: 767px) {
+        margin-bottom: 40px;   
+    }
+}
+
+.repos {
+    .filter-repos{
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border: none; 
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+        }
+    }
+    .filter-repos-msg {
+        display: flex; align-items: center; justify-content: space-between;                
+
+        button.clear {
+            background: transparent;
+            border: none;
+            display: flex; align-items: center; justify-content: center;   
+            outline: none;             
+
+            i {
+                width: 18px;
+                height: 18px;
+                padding: 1px;
+                margin-right: 3px;
+                color: #fff;
+                display: flex; align-items: center; justify-content: center;                
+                background-color: #6a737d;
+                border-radius: 6px;
+            }
+        }
+    }
+
+    .repo {
+        .repo-name {
+            color: $link-color;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .repo-info {
+            display: flex; align-items: center;;
+            .lang {
+                .dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: #2b7489
+                }
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+.err{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}

@@ -1,1 +1,63 @@
-<p>Profile works!</p>
+<div class="">
+    <div class="row">
+        <div class="col-md-3 user">
+            <div class="user-img mb-4" *ngIf="user?.avatar_url">
+                <img src="../../../assets/images/img-placeholder.gif" *ngIf="!imgLoaded" alt="">
+                <img  [hidden]="!imgLoaded" [src]="user?.avatar_url" (load)='imgLoaded= true' alt="">
+            </div>
+            <div class="user-info">
+                <h4 class="name">{{user?.name}}</h4>
+                <p class="g-hub-username">{{user?.login}}</p>
+                <p class="bio">{{user?.bio}}</p>
+                <div class="additional-info mt-4">
+                    <p *ngIf="user?.location"><i class="fa fa-map-marker"></i> {{user?.location}}</p>
+                    <a *ngIf="user?.html_url" [href]="user?.html_url" target="_blank"><i class="fa fa-link"></i> {{user?.html_url}}</a>
+
+                </div>
+            </div>
+            
+            <div *ngIf="userApiErrorMsg" class="err alert alert-danger ">{{userApiErrorMsg}}</div>
+
+        </div>
+        <div class="col-md-9 repos">
+            <h3><strong>Repositories</strong></h3>
+            <hr class="my-4">
+            <div class="filter-repos">
+                <input placeholder="Filter By Name" type="text" class="form-control" (keyup)="filterRepos($event)" #filter_input>
+            </div>
+            <hr class="my-4" *ngIf="filter_input.value">
+            <div class="filter-repos-msg" *ngIf="filter_input.value">
+                <span>
+                    <strong>{{(repos | listFilter: searchModel).length}}</strong> 
+                    results for repositories matching 
+                    <strong>{{filter_input.value}}</strong>
+                </span>
+                <button class="clear" (click)='filter_input.value = ""; searchModel = ""'>
+                    <i class="fa fa-times"></i> 
+                    Clear filter
+                </button>	
+            </div>
+            
+            <div class="repo" *ngFor="let repo of repos | listFilter: searchModel">
+                <hr class="my-4">
+                <a class="repo-name" [href]="repo?.html_url" target="_blank" >{{repo?.name}}</a>
+                <div class="repo-info mt-4">
+                   <div class="lang d-flex align-items-center mr-3">
+                    <div class="dot mr-2"></div>
+                    <span>{{repo?.language}}</span>
+                   </div>
+                   <div class="updated">
+                    <div class="dot mr-2"></div>
+                    <span>{{repo?.updated_at}}</span>
+                   </div>
+                </div>
+            </div>
+          
+            <div class="err alert my-5" *ngIf="!repos.length">
+                No Repositories found !!
+            </div>
+            <div *ngIf="repoApiErrorMsg" class="err alert alert-danger my-5">{{repoApiErrorMsg}}</div>
+
+        </div>
+    </div>
+</div>

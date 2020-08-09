@@ -1,6 +1,5 @@
-dsdkldl
 <div class="toolbar" role="banner">
-    <div class="container">
+    <div class="page_container">
       <div class="logo">
        <a routerLink="/">
         <img
@@ -12,8 +11,11 @@ dsdkldl
       </div>
    
       <div class="links"> 
-        <a routerLink="/" class="link">Profile</a>
-        <a class="link" (click)="logout()" *ngIf="authService.isAuthenticated()">Logout</a>
+        <!-- <a routerLink="/" class="link">Profile</a> -->
+        <a class="link " (click)="logout()" *ngIf="authService.isAuthenticated()">
+          Logout
+          <i class="fa fa-sign-out-alt ml-1"></i>
+        </a>
 
       </div>
     

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 const authCredentialsKey = 'credentials';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  api_url = environment.api_url;
   private authCredentails: {userName};
 
   constructor(private http: HttpClient) {
@@ -17,7 +19,7 @@ export class AuthenticationService {
   }
 
   login(userName: string) {
-    return this.http.get('https://api.github.com/users/' + userName);
+    return this.http.get(this.api_url + '/users/' + userName);
   }
 
   logout(): Observable<boolean> {

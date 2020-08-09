@@ -5,7 +5,7 @@
   .accounts {
     .acounts-form {
       background: url(https://github.githubassets.com/images/modules/site/heroes/simple-codelines.svg), #2b3137;
-      
+      overflow: auto;
       position: relative;
       > .container > .row:first-child{
         height: 100vh;
