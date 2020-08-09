@@ -42,7 +42,7 @@
                   </div>
     
                   <div class="form-group">
-                    <button class="submit-btn" type="submit" [disabled]="!userName">
+                    <button class="submit-btn" type="submit" [disabled]="!userName || loading">
                       <span>login</span>    
                     </button>
                   </div><!--End Form-group-->

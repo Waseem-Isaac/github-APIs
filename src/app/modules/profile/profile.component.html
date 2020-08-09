@@ -53,7 +53,7 @@
                 </div>
             </div>
           
-            <div class="err alert my-5" *ngIf="!repos.length">
+            <div class="err alert my-5" *ngIf="!repos?.length">
                 No Repositories found !!
             </div>
             <div *ngIf="repoApiErrorMsg" class="err alert alert-danger my-5">{{repoApiErrorMsg}}</div>

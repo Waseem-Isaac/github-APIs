@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   userName = '';
   remember = false;
   errMsg = '';
+  loading = false;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -20,11 +21,13 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.errMsg = '';
+    this.loading = true;
     this.authService.login(this.userName).subscribe(res => {
       this.authService.setAuthCredentials({userName: this.userName}, this.remember);
+      this.loading = false;
       this.router.navigate(['/'] , {replaceUrl: true});
-      console.log(res);
     }, (err: HttpErrorResponse) => {
+      this.loading = false;
       if(err.status === 404) {
         this.errMsg = 'User Not Found';
       }else if(err.status === 403) {
