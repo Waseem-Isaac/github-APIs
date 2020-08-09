@@ -1,0 +1,207 @@
+
+@import '../../../../variables.scss';
+
+:host {
+  .accounts {
+    .acounts-form {
+      background: url(https://github.githubassets.com/images/modules/site/heroes/simple-codelines.svg), #2b3137;
+      
+      position: relative;
+      > .container > .row:first-child{
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .form-wrapper {
+        background-color: #fafbfc;
+        padding: 40px;
+        box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        .form-title {
+          text-align: center;
+          text-transform: capitalize;
+          color: #030303;
+          font-size: 2.2em;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+
+        .form-group {
+          // margin-bottom: 10px;
+          .form-control {
+            border-radius: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            border: 1px solid transparent;
+            box-shadow: none;
+            height: 48px;
+            &::placeholder {
+              text-transform: capitalize;
+              color: #666;
+            }
+            &:focus {
+              outline: -webkit-focus-ring-color auto 5px;
+            }
+            &.ng-invalid.ng-touched{
+              border-color: #bd2130;
+            }
+          }
+        }
+        .submit-btn {
+          display: flex;
+    justify-content: center;
+    align-items: center;
+    
+          width: 100%;
+          height: 70px;
+          margin-bottom: 30px;
+          text-transform: uppercase;
+          font-size: 0.9375em;
+          font-weight: 700;
+          cursor: pointer;
+          border: 0;
+          background-color: $main-color;
+          color: #fff;
+          box-shadow: none;
+          transition: all .3s ease-in-out;
+          border-radius: 6px;
+          letter-spacing: 5px;
+          &:enabled:hover {
+            background-color: $main-color-hover;
+          }
+          &:disabled{
+              background-color: #6666;
+          }
+          &:disabled:hover{
+           cursor: not-allowed;
+          }
+        }
+        .form-link {
+          display: block;
+          margin: 0 auto 10px;
+          text-align: center;
+          color: 29a0e9;
+          text-decoration: none;
+          text-transform: capitalize;
+          transition: all 0.1s ease-in-out;
+          &:hover {
+            color: 29a0e9;
+          }
+        }
+        @media all and (max-width: 767.98px) {
+          padding: 30px;
+        }
+      
+      }
+      .alert{
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #d44950;
+        color: #fff;
+        margin-top: 20px;
+        border: 0;
+        border-radius: 6px;
+        box-shadow: 1px 1px 1px #999
+      }
+      .validation-text{
+        font-size: 14px;
+        color: #bd2130;
+        position: relative;
+        top: -10px;
+        margin-top: 15px;
+        span{
+          display: block;
+        }
+      }
+    }
+    .custom-checkbox {
+      clear: both;
+      margin-bottom: 5px;
+  
+      label {
+        display: inline-block;
+        position: relative;
+        text-transform: capitalize;
+        cursor: pointer;
+        user-select: none;
+        font-size: 16px;
+  
+        padding-left: 25px;
+        margin-bottom: 5px;
+        color: #030303;
+        [dir=rtl] & {
+          padding-left: 0;
+          padding-right: 25px;
+        }
+        /* Create a custom input */
+        > span {
+          position: absolute;
+          top: 3px;
+          left: 0;
+          height: 15px;
+          width: 15px;
+          border: 1px solid #cdcece;
+          background-color: #ffffff;
+          border-radius: 2px;
+          [dir=rtl] & {
+            left: initial;
+            right: 0;
+          }
+          i {
+            position: absolute;
+            color: #030303;
+            font-size: 13px;
+            display: none;
+          }
+        }
+  
+        /* Hide the browser's default radio button */
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+  
+          /* When the radio button is checked, add a blue background */
+          &:checked ~ span {
+            font-weight: bold;
+            i {
+              display: block;
+            }
+          }
+        }
+  
+        /* On mouse-over, add a grey background color */
+        &:hover > input ~ span {
+          background-color: white;
+        }
+  
+        &:hover > input:checked ~ span {
+          opacity: #0004;
+        }
+      }
+    }
+  }
+
+  .text {
+    h1{ 
+      color: #fff;
+      font-size: 48px;
+      font-weight: 500;
+    }
+    p{
+      font-size: 20px;
+      font-weight: 400;
+      color: hsla(0,0%,100%,.6);
+    }
+    @media (min-width: 768px){
+      h1 {
+        font-size: 64px !important;
+     }
+    }
+  }
+
+ 
+}

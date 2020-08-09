@@ -1,0 +1,30 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #24292e;
+    color: white;
+    font-weight: 600;
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+  }
+
+  .toolbar .logo img {
+    margin: 0 16px;
+  }
+
+  .toolbar .links {
+      .link {
+          cursor: pointer;
+          color: #fff;
+          text-decoration: none;
+          margin: 0 10px;
+      }
+  }
+  
