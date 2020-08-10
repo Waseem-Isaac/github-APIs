@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   repoApiErrorMsg = '';
   searchModel: string; 
   imgLoaded =  false;
+  reposLoading = false;
+
   ngOnInit(): void {
     this.getUser(this.userName);
     this.getUserRepos(this.userName);
@@ -34,9 +36,12 @@ export class ProfileComponent implements OnInit {
     });
   }
   getUserRepos(userName) {
+    this.reposLoading = true;
     this.profieService.getUserRepos(userName).subscribe((res: any) => {
+      this.reposLoading = false;
       this.repos = res;
     }, (err: HttpErrorResponse) => {
+      this.reposLoading = false;
       this.repoApiErrorMsg = err.status !== 0 ? err.error.message : 'Something went wrong, Please check your network connection';
     });
   }

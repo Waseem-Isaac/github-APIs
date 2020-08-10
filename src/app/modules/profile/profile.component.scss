@@ -2,6 +2,8 @@
 
 .user {
     .user-img {
+        min-height: 100px;
+        width: auto;
         img{
             width: 90%; height: auto;
             border-radius: 6px;
@@ -83,6 +85,14 @@
                 }
             }
         }
+    }
+
+    .repos-placeholder {
+       img{
+        width: 100%;
+        margin: 20px 0;
+        height: 100px;
+       }
     }
 }
 .err{

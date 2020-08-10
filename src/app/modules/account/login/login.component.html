@@ -43,7 +43,10 @@
     
                   <div class="form-group">
                     <button class="submit-btn" type="submit" [disabled]="!userName || loading">
-                      <span>login</span>    
+                      <span *ngIf="loading">
+                        <app-spinner></app-spinner>
+                      </span>
+                      <span *ngIf="!loading">login</span> 
                     </button>
                   </div><!--End Form-group-->
     
